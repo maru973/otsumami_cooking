@@ -1,0 +1,24 @@
+<a href="https://cookpad.com/search/%EF%BC%93%E5%88%86%20%E3%81%8A%E3%81%A4%E3%81%BE%E3%81%BF?order=">ここをクリックすると飛びます。</a>
+
+<div class = 'container'>
+  <div class = 'child'>
+    <% if @recipe.present? %>
+      <ul>
+        <li>title</li>
+        <p><%= recipe.recipeTitle %></p>
+        <li>image</li>
+        <p><%= image_tag recipe.foodImageUrl, alt: 'Recipe Image', size: '358x358' %></p>
+        <li>URL</li>
+        <p><%= link_to recipe.recipeUrl %></p>
+        <li>material</li>
+        <p><%= recipe.recipeMaterial.join(', ') %></p>
+        <li>cost</li>
+        <p><%= recipe.recipeCost %></p>
+        <li>time</li>
+        <p><%= recipe.recipeIndication %></p>
+      </ul>
+    <% else %>
+      <h2>レシピが見つかりません</h2>
+    <% end %>
+  </div>
+</div>
