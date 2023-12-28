@@ -1,0 +1,21 @@
+<h1>Recipe List</h1>
+<table class="access-log-table table">
+  <body>
+    <% @recipes.each do |recipe| %>
+      <ul>
+        <li>title</li>
+        <p><%= recipe.recipeTitle %></p>
+        <li>image</li>
+        <p><%= image_tag recipe.foodImageUrl, alt: 'Recipe Image', size: '358x358' %></p>
+        <li>URL</li>
+        <p><%= link_to recipe.recipeUrl %></p>
+        <li>material</li>
+        <p><%= recipe.recipeMaterial.join(', ') %></p>
+        <li>cost</li>
+        <p><%= recipe.recipeCost %></p>
+        <li>time</li>
+        <p><%= recipe.recipeIndication %></p>
+      </ul>
+    <% end %>
+  </body>
+</table>

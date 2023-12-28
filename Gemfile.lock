@@ -99,6 +99,10 @@ GEM
     debug (1.9.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -117,6 +121,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.7.1)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -191,6 +196,8 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.1.0)
+    rakuten_web_service (1.13.2)
+      json (~> 2.3)
     rdoc (6.6.2)
       psych (>= 4.0.0)
     regexp_parser (2.8.3)
@@ -247,10 +254,12 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dotenv-rails
   importmap-rails
   jbuilder
   puma (>= 5.0)
   rails (~> 7.1.2)
+  rakuten_web_service
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
