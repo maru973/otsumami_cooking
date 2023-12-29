@@ -1,21 +1,14 @@
-class Recipe
-  include ActiveModel::Model
-  include ActiveModel::Attributes
+class Recipe < ApplicationRecord
+  validates :title, uniqueness: true
 
-  attribute :recipeTitle, :string
-  attribute :foodImageUrl, :string
-  attribute :recipeUrl, :string
-  attribute :recipeMaterial, default: []
-  attribute :recipeCost, :string
-  attribute :recipeIndication, :string
-
-  class << self
-    def all
-      AccessRakutenRecipeApi.search
-    end
-  end
-
-  def has_error?
-    status.to_s.match?(/^[45]/)
+  def self.create_from_api_data(api_data)
+    create(
+      title: api_data[:recipeTitle],
+      url: api_data[:recipeUrl],
+      food_image_url: api_data[:foodImageUrl],
+      recipe_material: api_data[:recipeMaterial],
+      recipe_cost: api_data[:recipeCost],
+      recipe_indication: api_data[:recipeIndication]
+    )
   end
 end
