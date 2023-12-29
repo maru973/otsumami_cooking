@@ -1,21 +1,21 @@
-<a href="https://cookpad.com/search/%EF%BC%93%E5%88%86%20%E3%81%8A%E3%81%A4%E3%81%BE%E3%81%BF?order=">ここをクリックすると飛びます。</a>
-
 <div class = 'container'>
   <div class = 'child'>
     <% if @recipe.present? %>
       <ul>
         <li>title</li>
-        <p><%= recipe.recipeTitle %></p>
+        <p><%= @recipe.title %></p>
         <li>image</li>
-        <p><%= image_tag recipe.foodImageUrl, alt: 'Recipe Image', size: '358x358' %></p>
+        <p><%= image_tag @recipe.food_image_url, alt: 'Recipe Image', size: '358x358' %></p>
         <li>URL</li>
-        <p><%= link_to recipe.recipeUrl %></p>
+        <p><%= link_to 'レシピはこちらから', @recipe.url, target: :_blank %></p>
         <li>material</li>
-        <p><%= recipe.recipeMaterial.join(', ') %></p>
+        <p><%= @recipe.recipe_material.gsub(/[\[\]\"]/, '') %></p>
         <li>cost</li>
-        <p><%= recipe.recipeCost %></p>
+        <p><%= @recipe.recipe_cost %></p>
         <li>time</li>
-        <p><%= recipe.recipeIndication %></p>
+        <p><%= @recipe.recipe_indication %></p>
+        <p><%= link_to 'この料理で決定！', '#' %></p>
+        <p><%= link_to '今日の気分はこれじゃないかも・・・', recipes_show_path, class: "btn" %></p>
       </ul>
     <% else %>
       <h2>レシピが見つかりません</h2>

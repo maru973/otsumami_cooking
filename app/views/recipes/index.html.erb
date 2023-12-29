@@ -4,17 +4,17 @@
     <% @recipes.each do |recipe| %>
       <ul>
         <li>title</li>
-        <p><%= recipe.recipeTitle %></p>
+        <p><%= recipe.title %></p>
         <li>image</li>
-        <p><%= image_tag recipe.foodImageUrl, alt: 'Recipe Image', size: '358x358' %></p>
+        <p><%= image_tag recipe.food_image_url, alt: 'Recipe Image', size: '358x358' %></p>
         <li>URL</li>
-        <p><%= link_to recipe.recipeUrl %></p>
+        <p><%= link_to recipe.url %></p>
         <li>material</li>
-        <p><%= recipe.recipeMaterial.join(', ') %></p>
+        <p><%= recipe.recipe_material.gsub(/[\[\]\"]/, '') %></p>
         <li>cost</li>
-        <p><%= recipe.recipeCost %></p>
+        <p><%= recipe.recipe_cost %></p>
         <li>time</li>
-        <p><%= recipe.recipeIndication %></p>
+        <p><%= recipe.recipe_indication %></p>
       </ul>
     <% end %>
   </body>
