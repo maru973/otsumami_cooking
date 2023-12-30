@@ -16,16 +16,17 @@ let setTime; //カウントダウン設定時間
 
 // ターゲット時間をセットし描画
 function displayCount(){
-  tTarget = new Date(tStartTime+(1000*setTime)-Date.now()-tStopTime);
-  let ch = String(tTarget.getHours()-9).padStart(2,'0');
-  let cm = String(tTarget.getMinutes()).padStart(2,'0');
-  let cs = String(tTarget.getSeconds()).padStart(2,'0');
-  if(cs==0){
+  tTarget = new Date(tStartTime + (1000 * setTime) - Date.now() - tStopTime);
+  let ch = String(tTarget.getHours() - 9).padStart(2, '0');
+  let cm = String(tTarget.getMinutes()).padStart(2, '0');
+  let cs = String(tTarget.getSeconds()).padStart(2, '0');
+  
+  if(tTarget.getTime() < 0){ // タイマーが終了したかどうかの判定を修正
     tResset();
     alert('終了です');
-  }else{
-    $timer.innerHTML=(`${ch}:${cm}:${cs}`);
-    tCountId = setTimeout(displayCount,500);
+  } else {
+    $timer.innerHTML = `${ch}:${cm}:${cs}`;
+    tCountId = setTimeout(displayCount, 500);
   }
 }
 
@@ -34,7 +35,7 @@ $tStart.addEventListener('click',()=>{
   $tStart.disabled = true;
   $tStop.disabled = false;
   $tResset.disabled = true;
-  setTime =$input.value;
+  setTime =300;
   tStartTime = Date.now();
   displayCount();
 });
