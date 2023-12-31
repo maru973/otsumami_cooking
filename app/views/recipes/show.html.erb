@@ -14,7 +14,7 @@
         <p><%= @recipe.recipe_cost %></p>
         <li>time</li>
         <p><%= @recipe.recipe_indication %></p>
-        <p><%= link_to 'この料理で決定！', timers_path %></p>
+        <p><%= link_to 'この料理で決定！', timers_path, data: {"turbolinks" => false} %></p>
         <p><%= link_to '今日の気分はこれじゃないかも・・・', recipes_show_path, class: "btn" %></p>
       </ul>
     <% else %>
