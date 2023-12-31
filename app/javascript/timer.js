@@ -1,9 +1,18 @@
+function showModal(message, callback) {
+  alert(message);
+  if (typeof callback === 'function') {
+    callback();
+  }
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // ■カウントダウンタイマー
   const $timer=document.getElementById('js-timerTime');
   const $tStart = document.getElementById('js-timerStart');
   const $tStop =document.getElementById('js-timerStop');
   const $tResset =document.getElementById('js-timerResset');
+  const $tComplete = document.getElementById('js-timerComplete'); // 新しい完成ボタン
   
   console.log('$tStart:', $tStart);
   console.log('$tStop:', $tStop);
@@ -28,8 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let cs = String(tTarget.getSeconds()).padStart(2, '0');
     
     if(tTarget.getTime() < 0){ // タイマーが終了したかどうかの判定を修正
+      console.log('タイマーが終了しました');
       tResset();
-      alert('終了です');
+      showModal('終わりでーす！手を止めてくださーい！', () => {
+        window.location.href = '/failure';
+      });
     } else {
       $timer.innerHTML = `${ch}:${cm}:${cs}`;
       tCountId = setTimeout(displayCount, 500);
@@ -59,12 +71,23 @@ document.addEventListener('DOMContentLoaded', function() {
   $tResset.addEventListener("click", function () {
     tResset();
   });
+
+  // 新しい完成ボタンが押されたとき
+  $tComplete.addEventListener('click', function() {
+    if (tTarget.getTime() > 0) {
+      // タイマーがまだ残っている場合は失敗ページに遷移
+      window.location.href = '/success';
+    } else {
+      // タイマーが終了している場合は成功ページに遷移
+      window.location.href = '/failure';
+    }
+  });
   
   function tResset(){
     $tStart.disabled = false;
     $tStop.disabled = true;
     $tResset.disabled = true;
-    $timer.textContent = "00:00:00";
+    $timer.textContent = "00:05:00";
     tStopTime = 0;  
   }
   });
