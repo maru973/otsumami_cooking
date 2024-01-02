@@ -1,18 +1,24 @@
-<div class = 'text-center'>
-  <h1>今日のおつまみはこれ！</h1>
+<div class = 'container text-center'>
+  <h2>今日のおつまみはこれ！</h2>
   <% if @recipe.present? %>
-    <div class="card" style='max-width: 500px; height: 560px; overflow: auto;'>
-      <%= image_tag @recipe.food_image_url, class: "card-img-top", alt: 'Recipe Image', width: '358', height: '267' %>
+    <div class="card mx-auto">
+      <%= image_tag @recipe.food_image_url, class: "card-img-top", alt: 'Recipe Image' %>
       <div class="card-body">
         <ul class="list-group">
-          <li class="list-group-item card-text"><%= @recipe.recipe_indication %></li>
-          <li class="list-group-item card-title"><h5><%= @recipe.title %></h5></li>
-          <p class="card-text"><%= @recipe.recipe_cost %></p>
-          <p class="card-text" style='word-wrap: break-word;'><%= @recipe.recipe_material.gsub(/[\[\]\"]/, '') %></p>
-          <%= link_to 'レシピはこちらから', @recipe.url, class: "btn btn-primary", target: :_blank %>
+          <li class="list-group-item card-text text-end">
+            <%= @recipe.recipe_indication %><br>
+            <%= @recipe.recipe_cost %>
+          </li>
+          <li class="list-group-item card-text"><h5><%= @recipe.title %></h5></li>
+          <li class="list-group-item card-text"><%= @recipe.recipe_material.gsub(/[\[\]\"]/, '') %></li>
         </ul>
+        <%= link_to 'レシピはこちらから', @recipe.url, class: "btn btn-primary mt-2", target: :_blank %>
       </div>
-    </div> 
+    </div>
+    <div class="mt-2">
+      <p><%= link_to 'この料理で決定！', timers_path, class: "btn btn-danger", data: {"turbolinks" => false} %></p>
+      <p><%= link_to '今日の気分はこれじゃないかも', recipes_show_path, class: "btn btn-link" %></p>
+    </div>
   <% else %>
     <h2>レシピが見つかりません</h2>
   <% end %> 
