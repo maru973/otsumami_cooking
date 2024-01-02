@@ -1,0 +1,62 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+body {
+  height: 100vh;
+  background-image: url('cooking.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #000; /* テキストの色を適切なものに設定 */
+}
+
+.credit {
+  font-size: 10px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.card {
+  width: 500px;
+  height: 530px;
+  overflow: auto;
+}
+
+.card-img-top {
+  width: 100%; /* 画像も画面幅いっぱいに広げる */
+  height: 267px; /* 高さを自動調整する */
+}
+
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+  }
+  .card {
+    width: 300px;
+    height: 400px; /* 高さを自動調整する */
+    overflow: auto;
+  }
+
+  .card-img-top {
+    width: 100%; /* 画像も画面幅いっぱいに広げる */
+    height: 200px; /* 高さを自動調整する */
+  }
+}
