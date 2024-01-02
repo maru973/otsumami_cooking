@@ -9,8 +9,8 @@
           <li class="list-group-item card-text"><%= @recipe.recipe_cost %></li>
           <li class="list-group-item card-title"><h5><%= @recipe.title %></h5></li>
           <li class="list-group-item card-text" style='word-wrap: break-word;'><%= @recipe.recipe_material.gsub(/[\[\]\"]/, '') %></li>
-          <%= link_to 'レシピはこちらから', @recipe.url, class: "btn btn-primary", target: :_blank %>
         </ul>
+        <%= link_to 'レシピはこちらから', @recipe.url, class: "btn btn-primary mt-3", target: :_blank %>
       </div>
     </div> 
   <% else %>
