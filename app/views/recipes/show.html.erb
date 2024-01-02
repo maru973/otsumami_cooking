@@ -1,24 +1,19 @@
-<div class = 'container'>
-  <div class = 'child'>
-    <% if @recipe.present? %>
-      <ul>
-        <li>title</li>
-        <p><%= @recipe.title %></p>
-        <li>image</li>
-        <p><%= image_tag @recipe.food_image_url, alt: 'Recipe Image', size: '358x358' %></p>
-        <li>URL</li>
-        <p><%= link_to 'レシピはこちらから', @recipe.url, target: :_blank %></p>
-        <li>material</li>
-        <p><%= @recipe.recipe_material.gsub(/[\[\]\"]/, '') %></p>
-        <li>cost</li>
-        <p><%= @recipe.recipe_cost %></p>
-        <li>time</li>
-        <p><%= @recipe.recipe_indication %></p>
-        <p><%= link_to 'この料理で決定！', timers_path, data: {"turbolinks" => false} %></p>
-        <p><%= link_to '今日の気分はこれじゃないかも・・・', recipes_show_path, class: "btn" %></p>
-      </ul>
-    <% else %>
-      <h2>レシピが見つかりません</h2>
-    <% end %>
-  </div>
+<div class = 'text-center'>
+  <h1>今日のおつまみはこれ！</h1>
+  <% if @recipe.present? %>
+    <div class="card" style='max-width: 500px; height: 560px; overflow: auto;'>
+      <%= image_tag @recipe.food_image_url, class: "card-img-top", alt: 'Recipe Image', width: '358', height: '267' %>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item card-text"><%= @recipe.recipe_indication %></li>
+          <li class="list-group-item card-title"><h5><%= @recipe.title %></h5></li>
+          <p class="card-text"><%= @recipe.recipe_cost %></p>
+          <p class="card-text" style='word-wrap: break-word;'><%= @recipe.recipe_material.gsub(/[\[\]\"]/, '') %></p>
+          <%= link_to 'レシピはこちらから', @recipe.url, class: "btn btn-primary", target: :_blank %>
+        </ul>
+      </div>
+    </div> 
+  <% else %>
+    <h2>レシピが見つかりません</h2>
+  <% end %> 
 </div>
