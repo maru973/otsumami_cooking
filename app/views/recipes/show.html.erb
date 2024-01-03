@@ -1,4 +1,4 @@
-<div class = 'container text-center'>
+<div class = 'text-center'>
   <h2>今日のおつまみはこれ！</h2>
   <% if @recipe.present? %>
     <div class="card mx-auto">
@@ -14,8 +14,7 @@
         </ul>
         <%= link_to 'レシピはこちらから', @recipe.url, class: "btn btn-primary mt-2", target: :_blank %>
       </div>
-    </div>
-    <div class="mt-2">
+      <div class="mt-2">
       <p><%= link_to 'この料理で決定！', timers_path, class: "btn btn-danger", data: {"turbolinks" => false} %></p>
       <p><%= link_to '今日の気分はこれじゃないかも', recipes_show_path, class: "btn btn-link" %></p>
     </div>
