@@ -44,8 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     } else {
       $timer.innerHTML = `${ch}:${cm}:${cs}`;
+      if (tTarget.getMinutes() === 0 && tTarget.getSeconds() === 10) {
+        playSuccessSound();
+      }
       tCountId = setTimeout(displayCount, 500);
     }
+  }
+
+  function playSuccessSound() {
+    const audio = new Audio("/sounds/timeout.mp3");
+    audio.play();
   }
   
   // スタートボタンを押したとき
