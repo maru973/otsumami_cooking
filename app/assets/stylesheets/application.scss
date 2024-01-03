@@ -9,7 +9,7 @@ body {
   color: #000; /* テキストの色を適切なものに設定 */
 }
 
-.center-text {
+.center-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,6 +23,10 @@ body {
   bottom: 0;
 }
 
+.btn-size {
+  font-size: 15px;
+}
+
 .card {
   width: 500px;
   height: 530px;
@@ -34,12 +38,57 @@ body {
   height: 267px; /* 高さを自動調整する */
 }
 
+.timer {
+  width: 450px;
+  height: 250px;
+}
+
+.wrapper {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-text {
+  width: 60ch;
+  animation: typingdemo 4s steps(60), blinking .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 1em;
+}
+
+@keyframes typingdemo {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blinking {
+  50% {
+    border-color: transparent
+  }
+}
+
 @media (max-width: 768px) {
   body {
     margin: 0;
     padding: 0;
     background-size: cover;
   }
+
+  .centered-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    max-height: 500px;
+    overflow: auto;
+  }
+
   .card {
     width: 300px;
     height: 400px; /* 高さを自動調整する */
@@ -50,5 +99,50 @@ body {
     width: 100%; /* 画像も画面幅いっぱいに広げる */
     height: 200px; /* 高さを自動調整する */
   }
-}
 
+  .timer {
+    width: 350px;
+    height: 200px;
+  }
+
+  .btn {
+    font-size: 12px;
+  }
+
+  .btn-size {
+    font-size: 8px;
+  }
+
+  .wrapper {
+    height: auto; /* 高さを自動調整 */
+    min-height: 100px; /* 最小の高さを設定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    margin: auto;
+  }
+  
+  .typing-text h1 {
+    max-width: 100%;
+    width: 40ch;
+    animation: typingdemo 4s steps(40), blinking .4s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 20px;
+  }
+  
+  @keyframes typingdemo {
+    from {
+      width: 0;
+    }
+  }
+  
+  @keyframes blinking {
+    50% {
+      border-color: transparent;
+    }
+  }
+}

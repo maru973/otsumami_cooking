@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // ターゲット時間をセットし描画
   function displayCount(){
     tTarget = new Date(tStartTime + (1000 * setTime) - Date.now() - tStopTime);
-    let ch = String(tTarget.getHours() - 9).padStart(2, '0');
     let cm = String(tTarget.getMinutes()).padStart(2, '0');
     let cs = String(tTarget.getSeconds()).padStart(2, '0');
     
@@ -43,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = '/failure';
       });
     } else {
-      $timer.innerHTML = `${ch}:${cm}:${cs}`;
+      $timer.innerHTML = `${cm}:${cs}`;
       if (tTarget.getMinutes() === 0 && tTarget.getSeconds() === 10) {
         playSuccessSound();
       }
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     $tStart.disabled = false;
     $tStop.disabled = true;
     $tResset.disabled = true;
-    $timer.textContent = "00:05:00";
+    $timer.textContent = "05:00";
     tStopTime = 0;  
   }
   });
