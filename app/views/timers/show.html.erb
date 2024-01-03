@@ -1,13 +1,18 @@
-<h1>Mission: 時間内に料理を完成させよ</h1>
-
-<div class="timer">
-  <h2>タイマー</h2>
-  <p id="js-timerTime">00:05:00</p>
-  <input id="js-timerStart" type="button" value="スタート" />
-  <input id="js-timerStop" type="button" value="一旦心を落ち着かせる" disabled />
-  <input id="js-timerResset" type="button" value="リセット" disabled />
-  <input id="js-timerComplete" type="button" value="完成" />
+<div class="text-center mt-5">
+  <h1 class="mb-4">Mission: 時間内に料理を完成させよ</h1>
+  
+  <div class="card" style="width: 450px; height: 250px">
+    <div class="card-body">
+      <h5 class="card-title">タイマー</h5>
+      <h1 id="js-timerTime" class="display-1">00:05:00</h1>
+      <div class="btn-group mt-3" role="group">
+        <button id="js-timerStart" type="button" class="btn btn-danger">スタート</button>
+        <button id="js-timerStop" type="button" class="btn btn-primary" disabled>ほっと一息</button>
+        <button id="js-timerResset" type="button" class="btn btn-secondary" disabled>やり直し</button>
+        <button id="js-timerComplete" type="button" class="btn btn-warning">できた！</button>
+      </div>
+    </div>
+  </div>
+  <p><%= link_to 'トップへ戻る', root_path, class: "btn btn-success mt-2" %></p>
 </div>
 <%= javascript_include_tag 'timer', "data-turbo-track": "reload"%>
-
-<p><%= link_to 'トップへ戻る', root_path, class: "btn" %></p>

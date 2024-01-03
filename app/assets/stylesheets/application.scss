@@ -9,6 +9,13 @@ body {
   color: #000; /* テキストの色を適切なものに設定 */
 }
 
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .credit {
   font-size: 10px;
   position: fixed;
