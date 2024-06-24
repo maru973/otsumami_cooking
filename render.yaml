@@ -1,12 +1,12 @@
 databases:
-  - name: test_app2
-    databaseName: test_app2
+  - name: otsumami-cooking
+    databaseName: otsumami_cooking
     user: maru973
     region: singapore
 
 services:
   - type: web
-    name: test_app2
+    name: otsumami-cooking
     env: ruby
     region: singapore
     buildCommand: "./bin/render-build.sh"
