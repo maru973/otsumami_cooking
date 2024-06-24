@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // 新しい完成ボタンが押されたとき
   $tComplete.addEventListener('click', function() {
     if (tTarget.getTime() > 0) {
-      // タイマーがまだ残っている場合は失敗ページに遷移
+      // タイマーがまだ残っている場合は成功ページに遷移
       window.location.href = '/success';
     } else {
-      // タイマーが終了している場合は成功ページに遷移
+      // タイマーが終了している場合は失敗ページに遷移
       window.location.href = '/failure';
     }
   });
